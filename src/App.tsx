@@ -5,6 +5,7 @@ import initialEmails, { Email } from "./data/emails";
 import "./App.css";
 import Header from "./components/Header";
 import LeftMenu from "./components/LeftMenu";
+import Emails from "./components/Emails";
 // Instructions
 
 // - Break down App.tsx into components
@@ -73,7 +74,11 @@ function App() {
         setHideRead={setHideRead}
       />
       <main className="emails">
-        
+        <Emails
+          getFilteredEmails={getFilteredEmails}
+          toggleRead={toggleRead}
+          toggleStar={toggleStar}
+        />
       </main>
     </div>
   );
