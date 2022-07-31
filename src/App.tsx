@@ -14,7 +14,7 @@ import Emails from "./components/EmailList";
 // - Break down app.css into stylesheets ❌
 // - Pass through the relevant data as props to each component ✅
 // - Pass through the relevant functions as props to each component ✅
-// - Get the search input to work in the header section so that users can search for emails by title ❌
+// - Get the search input to work in the header section so that users can search for emails by title or sender ✅
 
 const getReadEmails = (emails: Email[]) =>
   emails.filter((email) => !email.read);
@@ -49,7 +49,7 @@ function App() {
     setEmails(updatedEmails);
   };
 
-  function getFilteredEmails(): Array<Email> {
+  function getFilteredEmails(): Email[] {
     let filteredEmails = emails;
 
     if (hideRead) {
@@ -58,6 +58,13 @@ function App() {
 
     if (currentTab === "starred") {
       filteredEmails = getStarredEmails(filteredEmails);
+    }
+    if (search) {
+      filteredEmails = filteredEmails.filter(
+        (email) =>
+          email.sender.toLowerCase().includes(search.toLowerCase()) ||
+          email.title.toLowerCase().includes(search.toLowerCase())
+      );
     }
 
     return filteredEmails;
