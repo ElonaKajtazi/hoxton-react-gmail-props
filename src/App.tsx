@@ -5,7 +5,7 @@ import initialEmails, { Email } from "./data/emails";
 import "./App.css";
 import Header from "./components/Header";
 import LeftMenu from "./components/LeftMenu";
-import Emails from "./components/Emails";
+import Emails from "./components/EmailList";
 // Instructions
 
 // - Break down App.tsx into components
