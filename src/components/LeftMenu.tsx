@@ -1,11 +1,15 @@
-type Props = {
-  currentTab: string;
-  setCurrentTab: React.Dispatch<React.SetStateAction<string>>;
-  unreadEmails: Array<Email>;
-  starredEmails: Array<Email>;
-  hideRead: boolean;
-  setHideRead: React.Dispatch<React.SetStateAction<boolean>>;
-};
+// type Props = {
+//   currentTab: string;
+//   setCurrentTab: React.Dispatch<React.SetStateAction<string>>;
+//   unreadEmails: Array<Email>;
+//   starredEmails: Array<Email>;
+//   hideRead: boolean;
+//   setHideRead: React.Dispatch<React.SetStateAction<boolean>>;
+// };
+
+import { HideReadListItem } from "./HideReadListItem";
+import { InboxListItem } from "./InboxListtItem";
+import { StarredListItem } from "./StarredListItem";
 
 export default function LeftMenu({
   currentTab,
@@ -14,34 +18,22 @@ export default function LeftMenu({
   starredEmails,
   hideRead,
   setHideRead,
-}: Props) {
+}) {
   return (
     <nav className="left-menu">
       <ul className="inbox-list">
-        <li
-          className={`item ${currentTab === "inbox" ? "active" : ""}`}
-          onClick={() => setCurrentTab("inbox")}
-        >
-          <span className="label">Inbox</span>
-          <span className="count">{unreadEmails.length}</span>
-        </li>
-        <li
-          className={`item ${currentTab === "starred" ? "active" : ""}`}
-          onClick={() => setCurrentTab("starred")}
-        >
-          <span className="label">Starred</span>
-          <span className="count">{starredEmails.length}</span>
-        </li>
+        <InboxListItem
+          currentTab={currentTab}
+          setCurrentTab={setCurrentTab}
+          unreadEmails={unreadEmails}
+        />
+        <StarredListItem
+          currentTab={currentTab}
+          setCurrentTab={setCurrentTab}
+          starredEmails={starredEmails}
+        />
 
-        <li className="item toggle">
-          <label htmlFor="hide-read">Hide read</label>
-          <input
-            id="hide-read"
-            type="checkbox"
-            checked={hideRead}
-            onChange={(e) => setHideRead(e.target.checked)}
-          />
-        </li>
+        <HideReadListItem hideRead={hideRead} setHideRead={setHideRead} />
       </ul>
     </nav>
   );
