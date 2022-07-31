@@ -6,10 +6,9 @@
 //   hideRead: boolean;
 //   setHideRead: React.Dispatch<React.SetStateAction<boolean>>;
 // };
-
+import "../../styles/left-menu.css";s
 import { HideReadListItem } from "./HideReadListItem";
 import { ListItem } from "./ListItem";
-
 
 export default function LeftMenu({
   currentTab,

@@ -1,3 +1,4 @@
+import "../../styles/header-left.css";
 export default function HeaderLeft() {
   return (
     <div className="left-menu">

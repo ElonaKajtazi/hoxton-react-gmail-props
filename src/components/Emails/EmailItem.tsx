@@ -1,3 +1,4 @@
+import "../../styles/email-item.css";
 export function EmailItem({ email, toggleRead, toggleStar }) {
   return (
     <li key={email.id} className={`email ${email.read ? "read" : "unread"}`}>

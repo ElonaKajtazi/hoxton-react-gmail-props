@@ -1,5 +1,5 @@
 import { EmailItem } from "./EmailItem";
-
+import "../../styles/email-list.css";
 export default function EmailList({
   getFilteredEmails,
   toggleRead,
@@ -10,7 +10,6 @@ export default function EmailList({
       {getFilteredEmails().map((email) => (
         <EmailItem
           key={email.id}
-
           email={email}
           toggleRead={toggleRead}
           toggleStar={toggleStar}
