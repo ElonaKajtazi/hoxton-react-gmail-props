@@ -8,13 +8,13 @@ import LeftMenu from "./components/LeftMenu";
 import Emails from "./components/EmailList";
 // Instructions
 
-// - Break down App.tsx into components
-//     - You should have an Emails component that renders a list
-//     - You should have an Email component that is a list item
-// - Break down app.css into stylesheets
-// - Pass through the relevant data as props to each component
-// - Pass through the relevant functions as props to each component
-// - Get the search input to work in the header section so that users can search for emails by title
+// - Break down App.tsx into components ✅
+//     - You should have an Emails component that renders a list ✅
+//     - You should have an Email component that is a list item ✅
+// - Break down app.css into stylesheets ❌
+// - Pass through the relevant data as props to each component ✅
+// - Pass through the relevant functions as props to each component ✅
+// - Get the search input to work in the header section so that users can search for emails by title ❌
 
 const getReadEmails = (emails: Email[]) =>
   emails.filter((email) => !email.read);
@@ -26,6 +26,7 @@ function App() {
   const [emails, setEmails] = useState(initialEmails);
   const [hideRead, setHideRead] = useState(false);
   const [currentTab, setCurrentTab] = useState("inbox");
+  const [search, setSearch] = useState("");
 
   const unreadEmails = emails.filter((email) => !email.read);
   const starredEmails = emails.filter((email) => email.starred);
@@ -64,7 +65,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header setSearch={setSearch} />
       <LeftMenu
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}

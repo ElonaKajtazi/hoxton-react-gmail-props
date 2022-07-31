@@ -1,7 +1,12 @@
-export default function HeadrtSearch() {
+export default function HeadrtSearch({ setSearch }) {
   return (
     <div className="search">
-      <input className="search-bar" placeholder="Search mail" />
+      <input
+        className="search-bar"
+        placeholder="Search mail"
+        onChange={(event) => {setSearch(event.target.value)}}
+        
+      />
     </div>
   );
 }

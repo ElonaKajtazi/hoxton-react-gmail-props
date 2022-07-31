@@ -8,8 +8,8 @@
 // };
 
 import { HideReadListItem } from "./HideReadListItem";
-import { InboxListItem } from "./InboxListtItem";
-import { StarredListItem } from "./StarredListItem";
+import { ListItem } from "./ListItem";
+
 
 export default function LeftMenu({
   currentTab,
@@ -22,15 +22,17 @@ export default function LeftMenu({
   return (
     <nav className="left-menu">
       <ul className="inbox-list">
-        <InboxListItem
+        <ListItem
+          tabName="inbox"
           currentTab={currentTab}
           setCurrentTab={setCurrentTab}
-          unreadEmails={unreadEmails}
+          count={unreadEmails.length}
         />
-        <StarredListItem
+        <ListItem
+          tabName="starred"
           currentTab={currentTab}
           setCurrentTab={setCurrentTab}
-          starredEmails={starredEmails}
+          count={starredEmails.length}
         />
 
         <HideReadListItem hideRead={hideRead} setHideRead={setHideRead} />
