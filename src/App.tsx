@@ -3,9 +3,9 @@ import { useState } from "react";
 import initialEmails, { Email } from "./data/emails";
 
 import "./App.css";
-import Header from "./components/Header";
-import LeftMenu from "./components/LeftMenu";
-import Emails from "./components/EmailList";
+import Header from "./components/Header/Header";
+import LeftMenu from "./components/LeftMenu/LeftMenu";
+import Emails from "./components/Emails/EmailList";
 // Instructions
 
 // - Break down App.tsx into components ✅
