@@ -1,4 +1,8 @@
-export function HideReadListItem({ hideRead, setHideRead }) {
+type Props = {
+  hideRead: boolean;
+  setHideRead: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export function HideReadListItem({ hideRead, setHideRead }: Props) {
   return (
     <li className="item toggle">
       <label htmlFor="hide-read">Hide read</label>

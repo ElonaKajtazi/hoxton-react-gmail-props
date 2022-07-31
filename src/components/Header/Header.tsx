@@ -1,7 +1,10 @@
 import HeaderLeft from "./HeaderLeft";
 import HeadrtSearch from "./HeaderSearch";
 import "../../styles/header.css";
-export default function Header({ setSearch }) {
+type Props = {
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+};
+export default function Header({ setSearch }: Props) {
   return (
     <header className="header">
       <HeaderLeft />

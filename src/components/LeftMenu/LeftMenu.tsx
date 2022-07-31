@@ -1,12 +1,14 @@
-// type Props = {
-//   currentTab: string;
-//   setCurrentTab: React.Dispatch<React.SetStateAction<string>>;
-//   unreadEmails: Array<Email>;
-//   starredEmails: Array<Email>;
-//   hideRead: boolean;
-//   setHideRead: React.Dispatch<React.SetStateAction<boolean>>;
-// };
-import "../../styles/left-menu.css";s
+import initialEmails, { Email } from "../../data/emails";
+type Props = {
+  currentTab: string;
+  setCurrentTab: React.Dispatch<React.SetStateAction<string>>;
+  unreadEmails: Email[];
+  starredEmails: Email[];
+  hideRead: boolean;
+  setHideRead: React.Dispatch<React.SetStateAction<boolean>>;
+};
+import "../../styles/left-menu.css";
+
 import { HideReadListItem } from "./HideReadListItem";
 import { ListItem } from "./ListItem";
 
@@ -17,7 +19,7 @@ export default function LeftMenu({
   starredEmails,
   hideRead,
   setHideRead,
-}) {
+}: Props) {
   return (
     <nav className="left-menu">
       <ul className="inbox-list">

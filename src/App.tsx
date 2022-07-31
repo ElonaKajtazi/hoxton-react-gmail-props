@@ -5,13 +5,14 @@ import initialEmails, { Email } from "./data/emails";
 import "./App.css";
 import Header from "./components/Header/Header";
 import LeftMenu from "./components/LeftMenu/LeftMenu";
-import Emails from "./components/Emails/EmailList";
+import EmailList from "./components/Emails/EmailList";
+
 // Instructions
 
 // - Break down App.tsx into components ✅
 //     - You should have an Emails component that renders a list ✅
 //     - You should have an Email component that is a list item ✅
-// - Break down app.css into stylesheets ❌
+// - Break down app.css into stylesheets ✅
 // - Pass through the relevant data as props to each component ✅
 // - Pass through the relevant functions as props to each component ✅
 // - Get the search input to work in the header section so that users can search for emails by title or sender ✅
@@ -82,7 +83,7 @@ function App() {
         setHideRead={setHideRead}
       />
       <main className="emails">
-        <Emails
+        <EmailList
           getFilteredEmails={getFilteredEmails}
           toggleRead={toggleRead}
           toggleStar={toggleStar}

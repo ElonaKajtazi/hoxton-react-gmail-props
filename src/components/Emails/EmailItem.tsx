@@ -1,5 +1,11 @@
 import "../../styles/email-item.css";
-export function EmailItem({ email, toggleRead, toggleStar }) {
+import initialEmails, { Email } from "../../data/emails";
+type Props = {
+  email: Email;
+  toggleRead : (targetEmail: Email) => void;
+  toggleStar : (targetEmail: Email) => void;
+};
+export function EmailItem({ email, toggleRead, toggleStar }: Props) {
   return (
     <li key={email.id} className={`email ${email.read ? "read" : "unread"}`}>
       <div className="select">
